@@ -26,13 +26,20 @@ return require('packer').startup(function(use)
   -- Packer can manage itself as an optional plugin
   use { 'wbthomason/packer.nvim' }
 
+  --Lsp color
+  use { 'folke/lsp-colors.nvim', config = lua_path"lsp-colors" }
+  use { 'nvim-lua/diagnostic-nvim'}
+
+
   -- LSP
   use { 'VonHeikemen/lsp-zero.nvim'}
   use { 'williamboman/nvim-lsp-installer'}
   use { 'neovim/nvim-lspconfig' }
-  use { 'folke/lsp-colors.nvim', config = lua_path"lsp-colors" }
+  -- use {'neoclide/coc.nvim', branch = 'release'}
+
   --Code-runner
-  use { 'anhtuan9971/run.nvim'}
+  use { 'anhtuan9971/run.nvim' }
+  use { 'thinca/vim-quickrun' }
 
   use { 'onsails/lspkind-nvim' }
   use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
@@ -53,7 +60,7 @@ return require('packer').startup(function(use)
 
   --use { 'lukas-reineke/cmp-rg' }
   --use { 'quangnguyen30192/cmp-nvim-tags' }
-  use { 'L3MON4D3/LuaSnip'}
+  use { 'L3MON4D3/LuaSnip' }
   use { 'rafamadriz/friendly-snippets' }
   use { 'windwp/nvim-autopairs', config = lua_path"nvim-autopairs" }
   use { 'AndrewRadev/tagalong.vim' }
@@ -74,7 +81,10 @@ return require('packer').startup(function(use)
   use { 'junegunn/vim-easy-align' }
   use { 'mhartington/formatter.nvim', config = lua_path"formatter" }
   use { 'zdharma-continuum/zinit-vim-syntax' }
-  use { 'rust-lang/rust.vim' }
+  -- use { 'rust-lang/rust.vim' }
+  use { 'simrat39/rust-tools.nvim'}
+  use { 'mfussenegger/nvim-jdtls'}
+  -- use { 'HiPhish/gradle.nvim'}
 
   -- Icons
   use { 'kyazdani42/nvim-web-devicons' }
@@ -90,6 +100,7 @@ return require('packer').startup(function(use)
   use { 'nvim-telescope/telescope.nvim', config = lua_path"telescope" }
   use { 'nvim-telescope/telescope-fzy-native.nvim' }
   use { 'cljoly/telescope-repo.nvim' }
+  use { 'nvim-telescope/telescope-ui-select.nvim', config = lua_path"telescope-ui" }
   -- use { 'nvim-telescope/telescope-dap.nvim' }
   use { 'pwntester/octo.nvim', config = lua_path"octo" }
 
@@ -104,6 +115,8 @@ return require('packer').startup(function(use)
   use { 'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = lua_path"gitsigns" }
   use { 'kdheepak/lazygit.nvim' }
   use { 'rhysd/committia.vim' }
+  use { 'ldelossa/litee.nvim', config = lua_path"litee" }
+  use { 'ldelossa/gh.nvim', config = lua_path"gh" }
 
   -- Registers & clipboard
   use { 'tversteeg/registers.nvim' }
@@ -139,16 +152,18 @@ return require('packer').startup(function(use)
   use { 'christoomey/vim-tmux-navigator' }
 
   -- Colorschema
-  use { 'sainnhe/gruvbox-material' }
-
+  use { 'sainnhe/gruvbox-material', requires = { 'folke/lsp-colors.nvim'}   }
+  use { "ellisonleao/gruvbox.nvim" }
+  use { "folke/tokyonight.nvim" }
   -- Tags
   -- use { 'ludovicchabant/vim-gutentags', config = lua_path"vim-gutentags" }
 
   -- Debugger
-  use { 'mfussenegger/nvim-dap', config = lua_path"nvim-dap" }
-  use { 'rcarriga/nvim-dap-ui', config = lua_path"nvim-dap-ui" }
-  use { 'theHamsta/nvim-dap-virtual-text', config = lua_path"nvim-dap-virtual-text" }
-
+  -- use { 'Pocco81/DAPInstall.nvim'}
+  -- use { 'mfussenegger/nvim-dap', config = lua_path"nvim-dap" }
+  -- use { 'rcarriga/nvim-dap-ui', config = lua_path"nvim-dap-ui" }
+  -- use { 'theHamsta/nvim-dap-virtual-text', config = lua_path"nvim-dap-virtual-text" }
+  --
   -- General Plugins
   use { 'rcarriga/nvim-notify', config = lua_path"nvim-notify" }
   use { 'airblade/vim-rooter', config = lua_path"vim-rooter" }
@@ -167,4 +182,13 @@ return require('packer').startup(function(use)
   --AutoSave
   use { 'Pocco81/AutoSave.nvim', config = lua_path"autosave"}
   use { 'dstein64/vim-startuptime' }
+
+  --which-key
+  use { 'folke/which-key.nvim', config = lua_path"which_key"}
+
+  --Project nvim
+  use { 'ahmedkhalf/project.nvim',config = lua_path"project_nvim"}
+
+  --Clangd
+  -- use { 'p00f/clangd_extensions.nvim'}
 end)

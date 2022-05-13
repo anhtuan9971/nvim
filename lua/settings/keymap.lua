@@ -2,6 +2,7 @@
 -- <F2> vim-codepainter
 --<F3> vim-codepainter navigate
 --tab
+vim.api.nvim_set_keymap('n', '<leader>s', ':e ~/.config/nvim/keymaps.txt<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<tab>', ':BufferNext<CR>', {noremap = true,silent = true})
 
 
@@ -42,6 +43,7 @@ vim.api.nvim_set_keymap('n', '<space>g', ':lua vim.diagnostic.open_float()<CR>',
 vim.api.nvim_set_keymap('n', '<space>,', ':lua vim.lsp.diagnostic.goto_prev()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<space>;', ':lua vim.lsp.diagnostic.goto_next()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<space>a', ':lua vim.lsp.diagnostic.code_action()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<space>aa',':lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<space>d', ':lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<space>f', ':lua vim.lsp.buf.formatting()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<space>h', ':lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })

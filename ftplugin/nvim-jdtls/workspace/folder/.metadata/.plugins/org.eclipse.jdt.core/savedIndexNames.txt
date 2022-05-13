@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+/Users/tuananh/.config/nvim/ftplugin/nvim-jdtls/workspace/folder/.metadata/.plugins/org.eclipse.jdt.core
+2375775507.index
+1865797976.index
+3842426239.index

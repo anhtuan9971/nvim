@@ -160,6 +160,11 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/ctrlsf.vim",
     url = "https://github.com/dyng/ctrlsf.vim"
   },
+  ["diagnostic-nvim"] = {
+    loaded = true,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/diagnostic-nvim",
+    url = "https://github.com/nvim-lua/diagnostic-nvim"
+  },
   ["editorconfig-vim"] = {
     config = { "require'plugins.editorconfig'" },
     loaded = true,
@@ -189,6 +194,12 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["gh.nvim"] = {
+    config = { "require'plugins.gh'" },
+    loaded = true,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/gh.nvim",
+    url = "https://github.com/ldelossa/gh.nvim"
+  },
   ["gitsigns.nvim"] = {
     config = { "require'plugins.gitsigns'" },
     loaded = true,
@@ -199,6 +210,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
+  },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   harpoon = {
     config = { "require'plugins.harpoon'" },
@@ -222,6 +238,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/lightspeed.nvim",
     url = "https://github.com/ggandor/lightspeed.nvim"
+  },
+  ["litee.nvim"] = {
+    config = { "require'plugins.litee'" },
+    loaded = true,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/litee.nvim",
+    url = "https://github.com/ldelossa/litee.nvim"
   },
   ["lsp-colors.nvim"] = {
     config = { "require'plugins.lsp-colors'" },
@@ -292,24 +314,6 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/crivotz/nvim-colorizer.lua"
   },
-  ["nvim-dap"] = {
-    config = { "require'plugins.nvim-dap'" },
-    loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/nvim-dap",
-    url = "https://github.com/mfussenegger/nvim-dap"
-  },
-  ["nvim-dap-ui"] = {
-    config = { "require'plugins.nvim-dap-ui'" },
-    loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
-    url = "https://github.com/rcarriga/nvim-dap-ui"
-  },
-  ["nvim-dap-virtual-text"] = {
-    config = { "require'plugins.nvim-dap-virtual-text'" },
-    loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
-    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
-  },
   ["nvim-gps"] = {
     config = { "require'plugins.nvim-gps'" },
     loaded = true,
@@ -321,6 +325,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/nvim-hlslens",
     url = "https://github.com/kevinhwang91/nvim-hlslens"
+  },
+  ["nvim-jdtls"] = {
+    loaded = true,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
+    url = "https://github.com/mfussenegger/nvim-jdtls"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
@@ -403,6 +412,12 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["project.nvim"] = {
+    config = { "require'plugins.project_nvim'" },
+    loaded = true,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/project.nvim",
+    url = "https://github.com/ahmedkhalf/project.nvim"
+  },
   ["registers.nvim"] = {
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/registers.nvim",
@@ -413,10 +428,10 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/run.nvim",
     url = "https://github.com/anhtuan9971/run.nvim"
   },
-  ["rust.vim"] = {
+  ["rust-tools.nvim"] = {
     loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/rust.vim",
-    url = "https://github.com/rust-lang/rust.vim"
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
   },
   ["stabilize.nvim"] = {
     config = { "require'plugins.stabilize'" },
@@ -444,6 +459,12 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/telescope-repo.nvim",
     url = "https://github.com/cljoly/telescope-repo.nvim"
   },
+  ["telescope-ui-select.nvim"] = {
+    config = { "require'plugins.telescope-ui'" },
+    loaded = true,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/telescope-ui-select.nvim",
+    url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
+  },
   ["telescope.nvim"] = {
     config = { "require'plugins.telescope'" },
     loaded = true,
@@ -455,6 +476,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["trouble.nvim"] = {
     loaded = true,
@@ -536,6 +562,11 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/vim-numbertoggle",
     url = "https://github.com/jeffkreeftmeijer/vim-numbertoggle"
   },
+  ["vim-quickrun"] = {
+    loaded = true,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/vim-quickrun",
+    url = "https://github.com/thinca/vim-quickrun"
+  },
   ["vim-rails"] = {
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/vim-rails",
@@ -582,6 +613,12 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/vim-wordmotion",
     url = "https://github.com/chaoren/vim-wordmotion"
   },
+  ["which-key.nvim"] = {
+    config = { "require'plugins.which_key'" },
+    loaded = true,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
+  },
   ["zinit-vim-syntax"] = {
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/zinit-vim-syntax",
@@ -590,146 +627,154 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-require'plugins.indent-blankline'
-time([[Config for indent-blankline.nvim]], false)
--- Config for: nvim-neoclip.lua
-time([[Config for nvim-neoclip.lua]], true)
-require'plugins.nvim-neoclip'
-time([[Config for nvim-neoclip.lua]], false)
--- Config for: ctrlsf.vim
-time([[Config for ctrlsf.vim]], true)
-require'plugins.ctrlsf'
-time([[Config for ctrlsf.vim]], false)
--- Config for: nvim-notify
-time([[Config for nvim-notify]], true)
-require'plugins.nvim-notify'
-time([[Config for nvim-notify]], false)
--- Config for: lightspeed.nvim
-time([[Config for lightspeed.nvim]], true)
-require'plugins.lightspeed'
-time([[Config for lightspeed.nvim]], false)
--- Config for: editorconfig-vim
-time([[Config for editorconfig-vim]], true)
-require'plugins.editorconfig'
-time([[Config for editorconfig-vim]], false)
 -- Config for: lsp-colors.nvim
 time([[Config for lsp-colors.nvim]], true)
 require'plugins.lsp-colors'
 time([[Config for lsp-colors.nvim]], false)
--- Config for: feline.nvim
-time([[Config for feline.nvim]], true)
-require'plugins.feline'
-time([[Config for feline.nvim]], false)
--- Config for: octo.nvim
-time([[Config for octo.nvim]], true)
-require'plugins.octo'
-time([[Config for octo.nvim]], false)
--- Config for: focus.nvim
-time([[Config for focus.nvim]], true)
-require'plugins.focus'
-time([[Config for focus.nvim]], false)
--- Config for: minimap.vim
-time([[Config for minimap.vim]], true)
-require'plugins.minimap'
-time([[Config for minimap.vim]], false)
--- Config for: AutoSave.nvim
-time([[Config for AutoSave.nvim]], true)
-require'plugins.autosave'
-time([[Config for AutoSave.nvim]], false)
--- Config for: nvim-ts-rainbow
-time([[Config for nvim-ts-rainbow]], true)
-require'plugins.nvim-ts-rainbow'
-time([[Config for nvim-ts-rainbow]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-require'plugins.comment'
-time([[Config for Comment.nvim]], false)
--- Config for: neoscroll.nvim
-time([[Config for neoscroll.nvim]], true)
-require'plugins.neoscroll'
-time([[Config for neoscroll.nvim]], false)
 -- Config for: FTerm.nvim
 time([[Config for FTerm.nvim]], true)
 require'plugins.fterm'
 time([[Config for FTerm.nvim]], false)
--- Config for: numb.nvim
-time([[Config for numb.nvim]], true)
-require'plugins.numb'
-time([[Config for numb.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-require'plugins.nvim-autopairs'
-time([[Config for nvim-autopairs]], false)
--- Config for: stabilize.nvim
-time([[Config for stabilize.nvim]], true)
-require'plugins.stabilize'
-time([[Config for stabilize.nvim]], false)
+-- Config for: nvim-ts-rainbow
+time([[Config for nvim-ts-rainbow]], true)
+require'plugins.nvim-ts-rainbow'
+time([[Config for nvim-ts-rainbow]], false)
 -- Config for: alpha-nvim
 time([[Config for alpha-nvim]], true)
 require'plugins.alpha-nvim'
 time([[Config for alpha-nvim]], false)
--- Config for: vim-rooter
-time([[Config for vim-rooter]], true)
-require'plugins.vim-rooter'
-time([[Config for vim-rooter]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-require'plugins.colorizer'
-time([[Config for nvim-colorizer.lua]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require'plugins.telescope'
-time([[Config for telescope.nvim]], false)
--- Config for: nvim-dap
-time([[Config for nvim-dap]], true)
-require'plugins.nvim-dap'
-time([[Config for nvim-dap]], false)
--- Config for: todo-comments.nvim
-time([[Config for todo-comments.nvim]], true)
-require'plugins.todo-comments'
-time([[Config for todo-comments.nvim]], false)
--- Config for: nvim-dap-ui
-time([[Config for nvim-dap-ui]], true)
-require'plugins.nvim-dap-ui'
-time([[Config for nvim-dap-ui]], false)
--- Config for: formatter.nvim
-time([[Config for formatter.nvim]], true)
-require'plugins.formatter'
-time([[Config for formatter.nvim]], false)
--- Config for: nvim-dap-virtual-text
-time([[Config for nvim-dap-virtual-text]], true)
-require'plugins.nvim-dap-virtual-text'
-time([[Config for nvim-dap-virtual-text]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require'plugins.treesitter'
-time([[Config for nvim-treesitter]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require'plugins.nvimtree'
-time([[Config for nvim-tree.lua]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require'plugins.gitsigns'
-time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-hlslens
-time([[Config for nvim-hlslens]], true)
-require'plugins.hlslens'
-time([[Config for nvim-hlslens]], false)
--- Config for: harpoon
-time([[Config for harpoon]], true)
-require'plugins.harpoon'
-time([[Config for harpoon]], false)
--- Config for: nvim-gps
-time([[Config for nvim-gps]], true)
-require'plugins.nvim-gps'
-time([[Config for nvim-gps]], false)
+-- Config for: minimap.vim
+time([[Config for minimap.vim]], true)
+require'plugins.minimap'
+time([[Config for minimap.vim]], false)
+-- Config for: octo.nvim
+time([[Config for octo.nvim]], true)
+require'plugins.octo'
+time([[Config for octo.nvim]], false)
 -- Config for: copilot.vim
 time([[Config for copilot.vim]], true)
 require'plugins.copilot'
 time([[Config for copilot.vim]], false)
+-- Config for: neoscroll.nvim
+time([[Config for neoscroll.nvim]], true)
+require'plugins.neoscroll'
+time([[Config for neoscroll.nvim]], false)
+-- Config for: vim-rooter
+time([[Config for vim-rooter]], true)
+require'plugins.vim-rooter'
+time([[Config for vim-rooter]], false)
+-- Config for: numb.nvim
+time([[Config for numb.nvim]], true)
+require'plugins.numb'
+time([[Config for numb.nvim]], false)
+-- Config for: ctrlsf.vim
+time([[Config for ctrlsf.vim]], true)
+require'plugins.ctrlsf'
+time([[Config for ctrlsf.vim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require'plugins.nvim-autopairs'
+time([[Config for nvim-autopairs]], false)
+-- Config for: project.nvim
+time([[Config for project.nvim]], true)
+require'plugins.project_nvim'
+time([[Config for project.nvim]], false)
+-- Config for: editorconfig-vim
+time([[Config for editorconfig-vim]], true)
+require'plugins.editorconfig'
+time([[Config for editorconfig-vim]], false)
+-- Config for: feline.nvim
+time([[Config for feline.nvim]], true)
+require'plugins.feline'
+time([[Config for feline.nvim]], false)
+-- Config for: focus.nvim
+time([[Config for focus.nvim]], true)
+require'plugins.focus'
+time([[Config for focus.nvim]], false)
+-- Config for: formatter.nvim
+time([[Config for formatter.nvim]], true)
+require'plugins.formatter'
+time([[Config for formatter.nvim]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+require'plugins.colorizer'
+time([[Config for nvim-colorizer.lua]], false)
+-- Config for: nvim-gps
+time([[Config for nvim-gps]], true)
+require'plugins.nvim-gps'
+time([[Config for nvim-gps]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require'plugins.treesitter'
+time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-hlslens
+time([[Config for nvim-hlslens]], true)
+require'plugins.hlslens'
+time([[Config for nvim-hlslens]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require'plugins.which_key'
+time([[Config for which-key.nvim]], false)
+-- Config for: stabilize.nvim
+time([[Config for stabilize.nvim]], true)
+require'plugins.stabilize'
+time([[Config for stabilize.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require'plugins.nvimtree'
+time([[Config for nvim-tree.lua]], false)
+-- Config for: telescope-ui-select.nvim
+time([[Config for telescope-ui-select.nvim]], true)
+require'plugins.telescope-ui'
+time([[Config for telescope-ui-select.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require'plugins.telescope'
+time([[Config for telescope.nvim]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require'plugins.indent-blankline'
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: nvim-notify
+time([[Config for nvim-notify]], true)
+require'plugins.nvim-notify'
+time([[Config for nvim-notify]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require'plugins.gitsigns'
+time([[Config for gitsigns.nvim]], false)
+-- Config for: harpoon
+time([[Config for harpoon]], true)
+require'plugins.harpoon'
+time([[Config for harpoon]], false)
+-- Config for: todo-comments.nvim
+time([[Config for todo-comments.nvim]], true)
+require'plugins.todo-comments'
+time([[Config for todo-comments.nvim]], false)
+-- Config for: gh.nvim
+time([[Config for gh.nvim]], true)
+require'plugins.gh'
+time([[Config for gh.nvim]], false)
+-- Config for: lightspeed.nvim
+time([[Config for lightspeed.nvim]], true)
+require'plugins.lightspeed'
+time([[Config for lightspeed.nvim]], false)
+-- Config for: AutoSave.nvim
+time([[Config for AutoSave.nvim]], true)
+require'plugins.autosave'
+time([[Config for AutoSave.nvim]], false)
+-- Config for: nvim-neoclip.lua
+time([[Config for nvim-neoclip.lua]], true)
+require'plugins.nvim-neoclip'
+time([[Config for nvim-neoclip.lua]], false)
+-- Config for: litee.nvim
+time([[Config for litee.nvim]], true)
+require'plugins.litee'
+time([[Config for litee.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+require'plugins.comment'
+time([[Config for Comment.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

@@ -1,0 +1,114 @@
+-- <F1> help
+-- <F2> vim-codepainter
+--<F3> vim-codepainter navigate
+--tab
+'<tab>', ':BufferNext<CR>'
+
+
+'<F4>', ':set number! relativenumber!<CR>'
+'<F5>', ':set list! list?<CR>',
+'<F6>', '<CMD>lua require("FTerm").toggle()<CR>',
+'<F6>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', 
+
+-- Buffers
+'<leader>bda', ':BufferCloseAllButCurrent<CR>', )
+'<leader>bn', ':BufferNext<CR>', )
+'<leader>bp', ':BufferPrevious<CR>', )
+
+-- Git
+'<leader>gf', ':20G<CR>', )
+'<leader>gg', ':LazyGit<CR>', )
+
+-- Ctrlsf
+'<C-F>f', '<Plug>CtrlSFPrompt', )
+('v', '<C-F>f', '<Plug>CtrlSFVwordExec', )
+'<C-F>n', '<Plug>CtrlSFCwordExec', )
+'<C-F>t', ':CtrlSFToggle<CR>', )
+
+-- Easy-align
+('x', 'ga', '<Plug>(EasyAlign)', )
+'ga', '<Plug>(EasyAlign)', )
+
+-- Lightspeed
+'f', '<Plug>Lightspeed_f', )
+'F', '<Plug>Lightspeed_F', )
+'t', '<Plug>Lightspeed_t', )
+'T', '<Plug>Lightspeed_T', )
+
+-- LSP
+'<space>g', ':lua vim.diagnostic.open_float()<CR>', 
+'<space>,', ':lua vim.lsp.diagnostic.goto_prev()<CR>', 
+'<space>;', ':lua vim.lsp.diagnostic.goto_next()<CR>', 
+'<space>a', ':lua vim.lsp.diagnostic.code_action()<CR>', 
+'<space>d', ':lua vim.lsp.buf.definition()<CR>', 
+'<space>f', ':lua vim.lsp.buf.formatting()<CR>', 
+'<space>h', ':lua vim.lsp.buf.hover()<CR>', 
+'<space>m', ':lua vim.lsp.buf.rename()<CR>', 
+'<space>r', ':lua vim.lsp.buf.references()<CR>', 
+'<space>s', ':lua vim.lsp.buf.document_symbol()<CR>', 
+
+-- Telescope
+'<leader>r', ":lua require('telescope.builtin').live_grep()<CR>", 
+'<leader>#', ":lua require('telescope.builtin').grep_string()<CR>", 
+'<leader>bb', ":lua require('telescope.builtin').buffers()<CR>", 
+'<leader>h', ":lua require('harpoon.mark').add_file()<CR>", 
+'<leader>m', ":Telescope harpoon marks<CR>", 
+'<leader>mm', ":lua require('harpoon.ui').toggle_quick_menu()<CR>", 
+'<leader>t', ":lua require('telescope.builtin').treesitter()<CR>", 
+'<leader>l', ":lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", 
+'<leader>f', ":lua require('plugins.telescope').project_files()<CR>", 
+'<leader>p', ":Telescope repo list<CR>", 
+'<leader>c', ":lua require('plugins.telescope').my_git_commits()<CR>", 
+'<leader>g', ":lua require('plugins.telescope').my_git_status()<CR>", 
+'<leader>b', ":lua require('plugins.telescope').my_git_bcommits()<CR>", 
+'<leader>n', ":lua require('plugins.telescope').my_note()<CR>", 
+'<leader>nn', ":e ~/Note/", )
+'<leader>gc', ':Octo issue create<CR>', )
+'<leader>i', ':Octo issue list<CR>', )
+'<leader>y', ':Telescope neoclip<CR>', )
+'<leader>ll', ":lua require('telescope.builtin').grep_string({ search = vim.fn.input('GREP -> ') })<CR>", 
+
+-- HlsLens
+'n', "<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>", 
+'N', "<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>", 
+'*', "*<Cmd>lua require('hlslens').start()<CR>", 
+'#', "#<Cmd>lua require('hlslens').start()<CR>", 
+'g*', "g*<Cmd>lua require('hlslens').start()<CR>", 
+'g#', "g#<Cmd>lua require('hlslens').start()<CR>", 
+
+-- Todo-comments
+'<leader>to', ':TodoTelescope<CR>', )
+
+-- Copilot
+('i', '<C-J>', 'copilot#Accept()', { , expr = true })
+
+-- Move.nvim
+'<A-j>', ":MoveLine(1)<CR>", 
+'<A-k>', ":MoveLine(-1)<CR>", 
+('v', '<A-j>', ":MoveBlock(1)<CR>", 
+('v', '<A-k>', ":MoveBlock(-1)<CR>", 
+'<A-l>', ":MoveHChar(1)<CR>", 
+'<A-h>', ":MoveHChar(-1)<CR>", 
+('v', '<A-l>', ":MoveHBlock(1)<CR>", 
+('v', '<A-h>', ":MoveHBlock(-1)<CR>", 
+
+-- Trouble
+("n", "<leader>xx", "<cmd>Trouble<cr>", )
+("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", )
+("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", )
+("n", "<leader>xl", "<cmd>Trouble loclist<cr>", )
+("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", )
+("n", "gR", "<cmd>Trouble lsp_references<cr>", )
+
+-- Nvim-dap
+("n", "<leader>dc", "<cmd>lua require'dap'.continue()<CR>", )
+("n", "<leader>ds", "<cmd>lua require'dap'.step_over()<CR>", )
+("n", "<leader>dsi", "<cmd>lua require'dap'.step_into()<CR>", )
+("n", "<leader>dso", "<cmd>lua require'dap'.step_out()<CR>", )
+("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", )
+("n", "<leader>dui", ":lua require('dapui').toggle()<cr>", )
+("n", "<leader>dro", "<cmd>lua require'dap'.repl.open()<CR>", )
+("n", "<leader>dcc", "<cmd>lua require'telescope'.extensions.dap.commands{}<CR>", )
+("n", "<leader>dlb", "<cmd>lua require'telescope'.extensions.dap.list_breakpoints{}<CR>", )
+("n", "<leader>dv", "<cmd>lua require'telescope'.extensions.dap.variables{}<CR>", )
+("n", "<leader>df", "<cmd>lua require'telescope'.extensions.dap.frames{}<CR>", )

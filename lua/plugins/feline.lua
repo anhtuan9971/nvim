@@ -99,7 +99,7 @@ force_inactive.buftypes = {
 
 -- vi-mode
 components.active[1][1] = {
-  provider = ' NV-IDE ',
+  provider = ' NVIM ',
   hl = function()
     local val = {}
 

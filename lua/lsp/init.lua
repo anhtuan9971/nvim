@@ -1,3 +1,10 @@
+--Rust tool
+require('rust-tools').setup({})
+require('rust-tools.inlay_hints').set_inlay_hints()
+
+--Clangd "clangd_extensions"
+-- require("clangd_extensions").setup()
+
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
 lsp.nvim_workspace()
@@ -18,7 +25,7 @@ vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
 vim.diagnostic.config {
       virtual_text = {
-         prefix = "",
+         prefix = '●', -- Could be '●', '▎', 'x'
       },
       signs = true,
       underline = true,
@@ -26,47 +33,91 @@ vim.diagnostic.config {
    }
 
 
---[[
-local M = {}
---require("plugins.configs.others").lsp_handlers()
+-- vim.cmd([[ autocmd ColorScheme * :lua require('vim.lsp.diagnostic')._define_default_signs_and_highlights() ]])
 
-function M.on_attach(client, bufnr)
-   local function buf_set_option(...)
-      vim.api.nvim_buf_set_option(bufnr, ...)
-   end
-
-   client.resolved_capabilities.document_formatting = false
-   client.resolved_capabilities.document_range_formatting = false
-   -- Enable completion triggered by <c-x><c-o>
-   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-
- --  require("core.mappings").lspconfig()
-end
-
+--[=[
+local nvim_lsp = require('lspconfig')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.preselectSupport = true
-capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
-capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
-capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-   properties = {
-      "documentation",
-      "detail",
-      "additionalTextEdits",
-   },
+
+-- Diagnostics symbols for display in the sign column.
+local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
+
+require'lspconfig'.html.setup {
+  filetypes = {"html", "eruby"},
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
+require'lspconfig'.tsserver.setup{
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require'lspconfig'.solargraph.setup{
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require'lspconfig'.cssls.setup{
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require'lspconfig'.dockerls.setup{
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require'lspconfig'.jsonls.setup{
+  commands = {
+    Format = {
+      function()
+        vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+      end
+    }
+  },
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require'lspconfig'.yamlls.setup{
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require'lspconfig'.vimls.setup{
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require'lspconfig'.dartls.setup{
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+require'lspconfig'.rust_analyzer.setup {
+  on_attach = on_attach,
+  settings = {
+    ["rust-analyzer"] = {
+      assist = {
+        importMergeBehavior = "last",
+        importPrefix = "by_self",
+      },
+      diagnostics = {
+        disabled = { "unresolved-import" }
+      },
+      cargo = {
+        loadOutDirsFromCheck = true
+      },
+      procMacro = {
+        enable = true
+      },
+      checkOnSave = {
+        command = "clippy"
+      },
+    }
+  },
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+]=]
 
--- requires a file containing user's lspconfigs
---local addlsp_confs = require("core.utils").load_config().plugins.options.lspconfig.setup_lspconf
-
---if #addlsp_confs ~= 0 then
---   require(addlsp_confs).setup_lsp(M.on_attach, capabilities)
---end
-
-return M
-
-]]
+require("nvim-lsp-installer").setup({
+    ensure_installed = { "rust_analyzer", "sumneko_lua",}, -- ensure these servers are always installed
+    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+}
+)

@@ -13,3 +13,5 @@ require('lsp')
 require('settings.keymap')
 --utils
 --require('utils')
+vim.cmd([[ autocmd ColorScheme * :lua require('vim.lsp.diagnostics')._define_default_signs_and_highlights() ]])
+vim.cmd([[ autocmd ColorScheme * runtime lsp/diagnostic.vim]])

@@ -39,6 +39,7 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 -- Window
 vim.opt.number = true
+vim.opt.termguicolors = true
 vim.opt.colorcolumn = "+1"
 vim.opt.foldmethod = 'indent'
 vim.opt.foldlevel = 1
