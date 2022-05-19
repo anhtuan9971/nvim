@@ -1,3 +1,4 @@
+--[=[]]
 local autosave = require("autosave")
 
 autosave.setup(
@@ -17,3 +18,4 @@ autosave.setup(
         debounce_delay = 135
     }
 )
+]=]

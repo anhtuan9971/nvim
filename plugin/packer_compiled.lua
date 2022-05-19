@@ -69,28 +69,23 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["AutoSave.nvim"] = {
-    config = { "require'plugins.autosave'" },
-    loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/AutoSave.nvim",
-    url = "https://github.com/Pocco81/AutoSave.nvim"
-  },
   ["Comment.nvim"] = {
     config = { "require'plugins.comment'" },
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
-  ["FTerm.nvim"] = {
-    config = { "require'plugins.fterm'" },
-    loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/FTerm.nvim",
-    url = "https://github.com/numtostr/FTerm.nvim"
-  },
   LuaSnip = {
+    after = { "cmp_luasnip" },
     loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
+    only_config = true
+  },
+  ["LuaSnip-snippets.nvim"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/opt/LuaSnip-snippets.nvim",
+    url = "https://github.com/molleweide/LuaSnip-snippets.nvim"
   },
   ["alpha-nvim"] = {
     config = { "require'plugins.alpha-nvim'" },
@@ -103,9 +98,18 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
   },
-  ["cmp-buffer"] = {
+  ["clangd_extensions.nvim"] = {
     loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/clangd_extensions.nvim",
+    url = "https://github.com/p00f/clangd_extensions.nvim"
+  },
+  ["cmp-buffer"] = {
+    after = { "cmp-path" },
+    after_files = { "/Users/tuananh/.local/share/nvim/site/pack/packer/opt/cmp-buffer/after/plugin/cmp_buffer.lua" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/opt/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-calc"] = {
@@ -123,9 +127,20 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  ["cmp-path"] = {
+  ["cmp-nvim-lua"] = {
+    after_files = { "/Users/tuananh/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua" },
+    load_after = {},
     loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/cmp-path",
+    needs_bufread = false,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
+  ["cmp-path"] = {
+    after_files = { "/Users/tuananh/.local/share/nvim/site/pack/packer/opt/cmp-path/after/plugin/cmp_path.lua" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/opt/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
   ["cmp-treesitter"] = {
@@ -133,10 +148,14 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/cmp-treesitter",
     url = "https://github.com/ray-x/cmp-treesitter"
   },
-  ["cmp-vsnip"] = {
+  cmp_luasnip = {
+    after = { "cmp-nvim-lua" },
+    after_files = { "/Users/tuananh/.local/share/nvim/site/pack/packer/opt/cmp_luasnip/after/plugin/cmp_luasnip.lua" },
+    load_after = {},
     loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
-    url = "https://github.com/hrsh7th/cmp-vsnip"
+    needs_bufread = false,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/opt/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   ["committia.vim"] = {
     loaded = true,
@@ -160,11 +179,6 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/ctrlsf.vim",
     url = "https://github.com/dyng/ctrlsf.vim"
   },
-  ["diagnostic-nvim"] = {
-    loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/diagnostic-nvim",
-    url = "https://github.com/nvim-lua/diagnostic-nvim"
-  },
   ["editorconfig-vim"] = {
     config = { "require'plugins.editorconfig'" },
     loaded = true,
@@ -176,6 +190,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/feline.nvim",
     url = "https://github.com/famiu/feline.nvim"
+  },
+  ["filetype.nvim"] = {
+    loaded = true,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/filetype.nvim",
+    url = "https://github.com/nathom/filetype.nvim"
   },
   ["focus.nvim"] = {
     config = { "require'plugins.focus'" },
@@ -210,11 +229,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
-  },
-  ["gruvbox.nvim"] = {
-    loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   harpoon = {
     config = { "require'plugins.harpoon'" },
@@ -256,6 +270,11 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -286,8 +305,10 @@ _G.packer_plugins = {
   },
   ["nvim-autopairs"] = {
     config = { "require'plugins.nvim-autopairs'" },
+    load_after = {},
     loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    needs_bufread = false,
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/opt/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-bqf"] = {
@@ -296,9 +317,9 @@ _G.packer_plugins = {
     url = "https://github.com/kevinhwang91/nvim-bqf"
   },
   ["nvim-cmp"] = {
+    after = { "nvim-autopairs" },
     loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/nvim-cmp",
-    url = "https://github.com/hrsh7th/nvim-cmp"
+    only_config = true
   },
   ["nvim-code-action-menu"] = {
     commands = { "CodeActionMenu" },
@@ -412,12 +433,6 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
-  ["project.nvim"] = {
-    config = { "require'plugins.project_nvim'" },
-    loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/project.nvim",
-    url = "https://github.com/ahmedkhalf/project.nvim"
-  },
   ["registers.nvim"] = {
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/registers.nvim",
@@ -438,11 +453,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/stabilize.nvim",
     url = "https://github.com/luukvbaal/stabilize.nvim"
-  },
-  ["suda.vim"] = {
-    loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/suda.vim",
-    url = "https://github.com/lambdalisue/suda.vim"
   },
   ["tagalong.vim"] = {
     loaded = true,
@@ -477,10 +487,11 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
   },
-  ["tokyonight.nvim"] = {
+  ["toggleterm.nvim"] = {
+    config = { "require'plugins.toggleterm'" },
     loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
+    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["trouble.nvim"] = {
     loaded = true,
@@ -562,11 +573,6 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/vim-numbertoggle",
     url = "https://github.com/jeffkreeftmeijer/vim-numbertoggle"
   },
-  ["vim-quickrun"] = {
-    loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/vim-quickrun",
-    url = "https://github.com/thinca/vim-quickrun"
-  },
   ["vim-rails"] = {
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/vim-rails",
@@ -576,12 +582,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/vim-repeat",
     url = "https://github.com/tpope/vim-repeat"
-  },
-  ["vim-rooter"] = {
-    config = { "require'plugins.vim-rooter'" },
-    loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/vim-rooter",
-    url = "https://github.com/airblade/vim-rooter"
   },
   ["vim-startify"] = {
     loaded = true,
@@ -603,11 +603,6 @@ _G.packer_plugins = {
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
     url = "https://github.com/christoomey/vim-tmux-navigator"
   },
-  ["vim-vsnip"] = {
-    loaded = true,
-    path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/vim-vsnip",
-    url = "https://github.com/hrsh7th/vim-vsnip"
-  },
   ["vim-wordmotion"] = {
     loaded = true,
     path = "/Users/tuananh/.local/share/nvim/site/pack/packer/start/vim-wordmotion",
@@ -627,58 +622,90 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+local module_lazy_loads = {
+  ["^cmp_nvim_lsp"] = "LuaSnip-snippets.nvim"
+}
+local lazy_load_called = {['packer.load'] = true}
+local function lazy_load_module(module_name)
+  local to_load = {}
+  if lazy_load_called[module_name] then return nil end
+  lazy_load_called[module_name] = true
+  for module_pat, plugin_name in pairs(module_lazy_loads) do
+    if not _G.packer_plugins[plugin_name].loaded and string.match(module_name, module_pat) then
+      to_load[#to_load + 1] = plugin_name
+    end
+  end
+
+  if #to_load > 0 then
+    require('packer.load')(to_load, {module = module_name}, _G.packer_plugins)
+    local loaded_mod = package.loaded[module_name]
+    if loaded_mod then
+      return function(modname) return loaded_mod end
+    end
+  end
+end
+
+if not vim.g.packer_custom_loader_enabled then
+  table.insert(package.loaders, 1, lazy_load_module)
+  vim.g.packer_custom_loader_enabled = true
+end
+
+-- Config for: lightspeed.nvim
+time([[Config for lightspeed.nvim]], true)
+require'plugins.lightspeed'
+time([[Config for lightspeed.nvim]], false)
+-- Config for: nvim-gps
+time([[Config for nvim-gps]], true)
+require'plugins.nvim-gps'
+time([[Config for nvim-gps]], false)
+-- Config for: litee.nvim
+time([[Config for litee.nvim]], true)
+require'plugins.litee'
+time([[Config for litee.nvim]], false)
+-- Config for: nvim-hlslens
+time([[Config for nvim-hlslens]], true)
+require'plugins.hlslens'
+time([[Config for nvim-hlslens]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require'plugins.LuaSnip'
+time([[Config for LuaSnip]], false)
 -- Config for: lsp-colors.nvim
 time([[Config for lsp-colors.nvim]], true)
 require'plugins.lsp-colors'
 time([[Config for lsp-colors.nvim]], false)
--- Config for: FTerm.nvim
-time([[Config for FTerm.nvim]], true)
-require'plugins.fterm'
-time([[Config for FTerm.nvim]], false)
--- Config for: nvim-ts-rainbow
-time([[Config for nvim-ts-rainbow]], true)
-require'plugins.nvim-ts-rainbow'
-time([[Config for nvim-ts-rainbow]], false)
--- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
-require'plugins.alpha-nvim'
-time([[Config for alpha-nvim]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require'plugins.cmp'
+time([[Config for nvim-cmp]], false)
+-- Config for: nvim-neoclip.lua
+time([[Config for nvim-neoclip.lua]], true)
+require'plugins.nvim-neoclip'
+time([[Config for nvim-neoclip.lua]], false)
+-- Config for: nvim-notify
+time([[Config for nvim-notify]], true)
+require'plugins.nvim-notify'
+time([[Config for nvim-notify]], false)
 -- Config for: minimap.vim
 time([[Config for minimap.vim]], true)
 require'plugins.minimap'
 time([[Config for minimap.vim]], false)
--- Config for: octo.nvim
-time([[Config for octo.nvim]], true)
-require'plugins.octo'
-time([[Config for octo.nvim]], false)
 -- Config for: copilot.vim
 time([[Config for copilot.vim]], true)
 require'plugins.copilot'
 time([[Config for copilot.vim]], false)
--- Config for: neoscroll.nvim
-time([[Config for neoscroll.nvim]], true)
-require'plugins.neoscroll'
-time([[Config for neoscroll.nvim]], false)
--- Config for: vim-rooter
-time([[Config for vim-rooter]], true)
-require'plugins.vim-rooter'
-time([[Config for vim-rooter]], false)
--- Config for: numb.nvim
-time([[Config for numb.nvim]], true)
-require'plugins.numb'
-time([[Config for numb.nvim]], false)
+-- Config for: stabilize.nvim
+time([[Config for stabilize.nvim]], true)
+require'plugins.stabilize'
+time([[Config for stabilize.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+require'plugins.comment'
+time([[Config for Comment.nvim]], false)
 -- Config for: ctrlsf.vim
 time([[Config for ctrlsf.vim]], true)
 require'plugins.ctrlsf'
 time([[Config for ctrlsf.vim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-require'plugins.nvim-autopairs'
-time([[Config for nvim-autopairs]], false)
--- Config for: project.nvim
-time([[Config for project.nvim]], true)
-require'plugins.project_nvim'
-time([[Config for project.nvim]], false)
 -- Config for: editorconfig-vim
 time([[Config for editorconfig-vim]], true)
 require'plugins.editorconfig'
@@ -687,100 +714,108 @@ time([[Config for editorconfig-vim]], false)
 time([[Config for feline.nvim]], true)
 require'plugins.feline'
 time([[Config for feline.nvim]], false)
--- Config for: focus.nvim
-time([[Config for focus.nvim]], true)
-require'plugins.focus'
-time([[Config for focus.nvim]], false)
--- Config for: formatter.nvim
-time([[Config for formatter.nvim]], true)
-require'plugins.formatter'
-time([[Config for formatter.nvim]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-require'plugins.colorizer'
-time([[Config for nvim-colorizer.lua]], false)
--- Config for: nvim-gps
-time([[Config for nvim-gps]], true)
-require'plugins.nvim-gps'
-time([[Config for nvim-gps]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require'plugins.treesitter'
-time([[Config for nvim-treesitter]], false)
--- Config for: nvim-hlslens
-time([[Config for nvim-hlslens]], true)
-require'plugins.hlslens'
-time([[Config for nvim-hlslens]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-require'plugins.which_key'
-time([[Config for which-key.nvim]], false)
--- Config for: stabilize.nvim
-time([[Config for stabilize.nvim]], true)
-require'plugins.stabilize'
-time([[Config for stabilize.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require'plugins.nvimtree'
-time([[Config for nvim-tree.lua]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+require'plugins.alpha-nvim'
+time([[Config for alpha-nvim]], false)
 -- Config for: telescope-ui-select.nvim
 time([[Config for telescope-ui-select.nvim]], true)
 require'plugins.telescope-ui'
 time([[Config for telescope-ui-select.nvim]], false)
+-- Config for: focus.nvim
+time([[Config for focus.nvim]], true)
+require'plugins.focus'
+time([[Config for focus.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 require'plugins.telescope'
 time([[Config for telescope.nvim]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-require'plugins.indent-blankline'
-time([[Config for indent-blankline.nvim]], false)
--- Config for: nvim-notify
-time([[Config for nvim-notify]], true)
-require'plugins.nvim-notify'
-time([[Config for nvim-notify]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require'plugins.gitsigns'
-time([[Config for gitsigns.nvim]], false)
--- Config for: harpoon
-time([[Config for harpoon]], true)
-require'plugins.harpoon'
-time([[Config for harpoon]], false)
+-- Config for: formatter.nvim
+time([[Config for formatter.nvim]], true)
+require'plugins.formatter'
+time([[Config for formatter.nvim]], false)
 -- Config for: todo-comments.nvim
 time([[Config for todo-comments.nvim]], true)
 require'plugins.todo-comments'
 time([[Config for todo-comments.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+require'plugins.toggleterm'
+time([[Config for toggleterm.nvim]], false)
 -- Config for: gh.nvim
 time([[Config for gh.nvim]], true)
 require'plugins.gh'
 time([[Config for gh.nvim]], false)
--- Config for: lightspeed.nvim
-time([[Config for lightspeed.nvim]], true)
-require'plugins.lightspeed'
-time([[Config for lightspeed.nvim]], false)
--- Config for: AutoSave.nvim
-time([[Config for AutoSave.nvim]], true)
-require'plugins.autosave'
-time([[Config for AutoSave.nvim]], false)
--- Config for: nvim-neoclip.lua
-time([[Config for nvim-neoclip.lua]], true)
-require'plugins.nvim-neoclip'
-time([[Config for nvim-neoclip.lua]], false)
--- Config for: litee.nvim
-time([[Config for litee.nvim]], true)
-require'plugins.litee'
-time([[Config for litee.nvim]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-require'plugins.comment'
-time([[Config for Comment.nvim]], false)
+-- Config for: neoscroll.nvim
+time([[Config for neoscroll.nvim]], true)
+require'plugins.neoscroll'
+time([[Config for neoscroll.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require'plugins.gitsigns'
+time([[Config for gitsigns.nvim]], false)
+-- Config for: numb.nvim
+time([[Config for numb.nvim]], true)
+require'plugins.numb'
+time([[Config for numb.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require'plugins.which_key'
+time([[Config for which-key.nvim]], false)
+-- Config for: harpoon
+time([[Config for harpoon]], true)
+require'plugins.harpoon'
+time([[Config for harpoon]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require'plugins.indent-blankline'
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require'plugins.nvimtree'
+time([[Config for nvim-tree.lua]], false)
+-- Config for: octo.nvim
+time([[Config for octo.nvim]], true)
+require'plugins.octo'
+time([[Config for octo.nvim]], false)
+-- Config for: nvim-ts-rainbow
+time([[Config for nvim-ts-rainbow]], true)
+require'plugins.nvim-ts-rainbow'
+time([[Config for nvim-ts-rainbow]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+require'plugins.colorizer'
+time([[Config for nvim-colorizer.lua]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require'plugins.treesitter'
+time([[Config for nvim-treesitter]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd cmp-nvim-lsp ]]
+vim.cmd [[ packadd cmp-buffer ]]
+vim.cmd [[ packadd cmp-path ]]
+vim.cmd [[ packadd cmp_luasnip ]]
+vim.cmd [[ packadd cmp-nvim-lua ]]
+vim.cmd [[ packadd nvim-autopairs ]]
+
+-- Config for: nvim-autopairs
+require'plugins.nvim-autopairs'
+
+time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file CodeActionMenu lua require("packer.load")({'nvim-code-action-menu'}, { cmd = "CodeActionMenu", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'LuaSnip-snippets.nvim'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

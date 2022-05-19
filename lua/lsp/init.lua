@@ -3,7 +3,7 @@ require('rust-tools').setup({})
 require('rust-tools.inlay_hints').set_inlay_hints()
 
 --Clangd "clangd_extensions"
--- require("clangd_extensions").setup()
+require("clangd_extensions").setup()
 
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
@@ -113,11 +113,20 @@ require("nvim-lsp-installer").setup({
     ensure_installed = { "rust_analyzer", "sumneko_lua",}, -- ensure these servers are always installed
     automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
     ui = {
-        icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
-        }
-    }
+      icons = {
+         server_installed = "",
+         server_pending = "",
+         server_uninstalled = "ﮊ",
+      },
+      keymaps = {
+         toggle_server_expand = "<CR>",
+         install_server = "i",
+         update_server = "u",
+         check_server_version = "c",
+         update_all_servers = "U",
+         check_outdated_servers = "C",
+         uninstall_server = "X",
+      },
+   },
 }
 )

@@ -5,190 +5,180 @@ local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-  execute 'packadd packer.nvim'
+    execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+    execute 'packadd packer.nvim'
 end
 
 vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = "plugins.lua",
-  command = "source <afile> | PackerCompile",
+    pattern = "plugins.lua",
+    command = "source <afile> | PackerCompile",
 })
 
-require('packer').init({display = {auto_clean = false}})
+require('packer').init({ display = { auto_clean = false } })
 
 return require('packer').startup(function(use)
 
-  -- Load lua path
-  local lua_path = function(name)
-    return string.format("require'plugins.%s'", name)
-  end
+    -- Load lua path
+    local lua_path = function(name)
+        return string.format("require'plugins.%s'", name)
+    end
 
-  -- Packer can manage itself as an optional plugin
-  use { 'wbthomason/packer.nvim' }
+    -- Packer can manage itself as an optional plugin
+    use { 'wbthomason/packer.nvim', }
+    -- LSP
+    use { 'VonHeikemen/lsp-zero.nvim' }
+    use { 'williamboman/nvim-lsp-installer', }
+    use { 'neovim/nvim-lspconfig', }
+    use { 'ray-x/lsp_signature.nvim', }
+    use { 'folke/lsp-colors.nvim', config = lua_path "lsp-colors" }
 
-  --Lsp color
-  use { 'folke/lsp-colors.nvim', config = lua_path"lsp-colors" }
-  use { 'nvim-lua/diagnostic-nvim'}
+    -- use {'neoclide/coc.nvim', branch = 'release'}
 
+    --Code-runner
+    use { 'anhtuan9971/run.nvim' }
 
-  -- LSP
-  use { 'VonHeikemen/lsp-zero.nvim'}
-  use { 'williamboman/nvim-lsp-installer'}
-  use { 'neovim/nvim-lspconfig' }
-  -- use {'neoclide/coc.nvim', branch = 'release'}
+    use { 'onsails/lspkind-nvim' }
+    use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
 
-  --Code-runner
-  use { 'anhtuan9971/run.nvim' }
-  use { 'thinca/vim-quickrun' }
+    --Commment
+    use { 'numToStr/Comment.nvim', config = lua_path "comment" }
 
-  use { 'onsails/lspkind-nvim' }
-  use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
+    -- Autocomplete
+    use { 'hrsh7th/nvim-cmp', config = lua_path "cmp" }
+    use { 'hrsh7th/cmp-nvim-lua', after = "cmp_luasnip", }
+    use { 'hrsh7th/cmp-nvim-lsp', }
+    use { 'hrsh7th/cmp-buffer', after = "cmp-nvim-lsp", }
+    -- use { 'hrsh7th/cmp-vsnip' }
+    -- use { 'hrsh7th/vim-vsnip' }
+    use { 'hrsh7th/cmp-path', after = "cmp-buffer", }
+    use { 'hrsh7th/cmp-calc' }
+    use { 'hrsh7th/cmp-cmdline' }
+    use { 'ray-x/cmp-treesitter' }
+    use { 'saadparwaiz1/cmp_luasnip', after = "LuaSnip", }
 
-  --Commment
-  use { 'numToStr/Comment.nvim',config = lua_path"comment" }
+    --use { 'lukas-reineke/cmp-rg' }
+    --use { 'quangnguyen30192/cmp-nvim-tags' }
+    use { 'L3MON4D3/LuaSnip', config = lua_path "LuaSnip" }
+    use { 'rafamadriz/friendly-snippets' }
+    use { 'molleweide/LuaSnip-snippets.nvim', module = "cmp_nvim_lsp",
+        event = "InsertEnter", }
+    use { 'windwp/nvim-autopairs', after = "nvim-cmp", config = lua_path "nvim-autopairs" }
+    use { 'AndrewRadev/tagalong.vim' }
+    use { 'andymass/vim-matchup' }
 
-  -- Autocomplete
-  use { 'hrsh7th/nvim-cmp' }
-  use { 'hrsh7th/cmp-nvim-lsp' }
-  use { 'hrsh7th/cmp-buffer' }
-  use { 'hrsh7th/cmp-vsnip' }
-  use { 'hrsh7th/vim-vsnip' }
-  use { 'hrsh7th/cmp-path' }
-  use { 'hrsh7th/cmp-calc' }
-  use { 'hrsh7th/cmp-cmdline' }
-  use { 'ray-x/cmp-treesitter' }
+    -- Treesitter
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = lua_path "treesitter" }
+    use { 'p00f/nvim-ts-rainbow', config = lua_path "nvim-ts-rainbow" }
+    use { 'lukas-reineke/indent-blankline.nvim', config = lua_path "indent-blankline" }
+    use { 'JoosepAlviste/nvim-ts-context-commentstring' }
+    use { 'lewis6991/nvim-treesitter-context' }
+    use { 'SmiteshP/nvim-gps', config = lua_path "nvim-gps" }
 
-  --use { 'lukas-reineke/cmp-rg' }
-  --use { 'quangnguyen30192/cmp-nvim-tags' }
-  use { 'L3MON4D3/LuaSnip' }
-  use { 'rafamadriz/friendly-snippets' }
-  use { 'windwp/nvim-autopairs', config = lua_path"nvim-autopairs" }
-  use { 'AndrewRadev/tagalong.vim' }
-  use { 'andymass/vim-matchup' }
+    -- Syntax
+    use { 'moll/vim-node' }
+    use { 'editorconfig/editorconfig-vim', config = lua_path "editorconfig" }
+    use { 'chrisbra/csv.vim' }
+    use { 'junegunn/vim-easy-align' }
+    use { 'mhartington/formatter.nvim', config = lua_path "formatter" }
+    use { 'zdharma-continuum/zinit-vim-syntax' }
+    use { 'simrat39/rust-tools.nvim', }
+    use { 'mfussenegger/nvim-jdtls' }
+    use { 'p00f/clangd_extensions.nvim', }
+    -- use { 'ahmedkhalf/project.nvim', config = lua_path "project_nvim" }
 
-  -- Treesitter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = lua_path"treesitter" }
-  use { 'p00f/nvim-ts-rainbow', config = lua_path"nvim-ts-rainbow" }
-  use { 'lukas-reineke/indent-blankline.nvim', config = lua_path"indent-blankline" }
-  use { 'JoosepAlviste/nvim-ts-context-commentstring' }
-  use { 'lewis6991/nvim-treesitter-context' }
-  use { 'SmiteshP/nvim-gps', config = lua_path"nvim-gps" }
+    -- Icons
+    use { 'kyazdani42/nvim-web-devicons' }
+    use { 'ryanoasis/vim-devicons' }
 
-  -- Syntax
-  use { 'moll/vim-node' }
-  use { 'editorconfig/editorconfig-vim', config = lua_path"editorconfig" }
-  use { 'chrisbra/csv.vim' }
-  use { 'junegunn/vim-easy-align' }
-  use { 'mhartington/formatter.nvim', config = lua_path"formatter" }
-  use { 'zdharma-continuum/zinit-vim-syntax' }
-  -- use { 'rust-lang/rust.vim' }
-  use { 'simrat39/rust-tools.nvim'}
-  use { 'mfussenegger/nvim-jdtls'}
-  -- use { 'HiPhish/gradle.nvim'}
+    -- Status Line and Bufferline
+    use { 'famiu/feline.nvim', config = lua_path "feline" }
+    use { 'romgrk/barbar.nvim' }
 
-  -- Icons
-  use { 'kyazdani42/nvim-web-devicons' }
-  use { 'ryanoasis/vim-devicons' }
+    -- Telescope
+    use { 'nvim-lua/popup.nvim' }
+    use { 'nvim-lua/plenary.nvim' }
+    use { 'nvim-telescope/telescope.nvim', config = lua_path "telescope" }
+    use { 'nvim-telescope/telescope-fzy-native.nvim' }
+    use { 'cljoly/telescope-repo.nvim' }
+    use { 'nvim-telescope/telescope-ui-select.nvim', config = lua_path "telescope-ui" }
+    -- use { 'nvim-telescope/telescope-dap.nvim' }
+    use { 'pwntester/octo.nvim', config = lua_path "octo" }
 
-  -- Status Line and Bufferline
-  use { 'famiu/feline.nvim', config = lua_path"feline" }
-  use { 'romgrk/barbar.nvim' }
+    -- Explorer
+    use { 'kyazdani42/nvim-tree.lua', config = lua_path "nvimtree" }
 
-  -- Telescope
-  use { 'nvim-lua/popup.nvim' }
-  use { 'nvim-lua/plenary.nvim' }
-  use { 'nvim-telescope/telescope.nvim', config = lua_path"telescope" }
-  use { 'nvim-telescope/telescope-fzy-native.nvim' }
-  use { 'cljoly/telescope-repo.nvim' }
-  use { 'nvim-telescope/telescope-ui-select.nvim', config = lua_path"telescope-ui" }
-  -- use { 'nvim-telescope/telescope-dap.nvim' }
-  use { 'pwntester/octo.nvim', config = lua_path"octo" }
+    -- Color
+    use { 'crivotz/nvim-colorizer.lua', config = lua_path "colorizer" }
+    use { 'lpinilla/vim-codepainter' }
 
-  -- Explorer
-  use { 'kyazdani42/nvim-tree.lua', config = lua_path"nvimtree" }
+    -- Git
+    use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }, config = lua_path "gitsigns" }
+    use { 'kdheepak/lazygit.nvim' }
+    use { 'rhysd/committia.vim' }
+    use { 'ldelossa/litee.nvim', config = lua_path "litee" }
+    use { 'ldelossa/gh.nvim', config = lua_path "gh" }
 
-  -- Color
-  use { 'crivotz/nvim-colorizer.lua', config = lua_path"colorizer" }
-  use { 'lpinilla/vim-codepainter' }
+    -- Registers & clipboard
+    use { 'tversteeg/registers.nvim' }
+    use { 'AckslD/nvim-neoclip.lua', config = lua_path "nvim-neoclip" }
 
-  -- Git
-  use { 'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = lua_path"gitsigns" }
-  use { 'kdheepak/lazygit.nvim' }
-  use { 'rhysd/committia.vim' }
-  use { 'ldelossa/litee.nvim', config = lua_path"litee" }
-  use { 'ldelossa/gh.nvim', config = lua_path"gh" }
+    -- Move & Search & replace
+    use { 'nacro90/numb.nvim', config = lua_path "numb" }
+    use { 'dyng/ctrlsf.vim', config = lua_path "ctrlsf" }
+    use { 'kevinhwang91/nvim-hlslens', config = lua_path "hlslens" }
+    use { 'ggandor/lightspeed.nvim', config = lua_path "lightspeed" }
+    use { 'ThePrimeagen/harpoon', config = lua_path "harpoon" }
+    use { 'karb94/neoscroll.nvim', config = lua_path "neoscroll" }
+    use { 'dstein64/nvim-scrollview' }
+    use { 'chaoren/vim-wordmotion' }
+    use { 'fedepujol/move.nvim' }
 
-  -- Registers & clipboard
-  use { 'tversteeg/registers.nvim' }
-  use { 'AckslD/nvim-neoclip.lua', config = lua_path"nvim-neoclip" }
+    -- Tim Pope docet
+    use { 'tpope/vim-rails' }
+    use { 'tpope/vim-abolish' }
+    use { 'tpope/vim-surround' }
+    use { 'tpope/vim-bundler' }
+    use { 'tpope/vim-capslock' }
+    use { 'tpope/vim-repeat' }
+    use { 'tpope/vim-endwise' }
+    use { 'tpope/vim-dispatch' }
+    use { 'tpope/vim-dadbod' }
+    use { 'tpope/vim-jdaddy' }
+    use { 'tpope/vim-fugitive' }
+    use { 'tpope/vim-commentary' }
+    use { 'github/copilot.vim', config = lua_path "copilot" }
 
-  -- Move & Search & replace
-  use { 'nacro90/numb.nvim', config = lua_path"numb" }
-  use { 'dyng/ctrlsf.vim', config = lua_path"ctrlsf" }
-  use { 'kevinhwang91/nvim-hlslens', config = lua_path"hlslens" }
-  use { 'ggandor/lightspeed.nvim', config = lua_path"lightspeed" }
-  use { 'ThePrimeagen/harpoon', config = lua_path"harpoon" }
-  use { 'karb94/neoscroll.nvim', config = lua_path"neoscroll" }
-  use { 'dstein64/nvim-scrollview' }
-  use { 'chaoren/vim-wordmotion' }
-  use { 'fedepujol/move.nvim' }
+    -- Tmux
+    use { 'christoomey/vim-tmux-navigator' }
 
-  -- Tim Pope docet
-  use { 'tpope/vim-rails' }
-  use { 'tpope/vim-abolish' }
-  use { 'tpope/vim-surround' }
-  use { 'tpope/vim-bundler' }
-  use { 'tpope/vim-capslock' }
-  use { 'tpope/vim-repeat' }
-  use { 'tpope/vim-endwise' }
-  use { 'tpope/vim-dispatch' }
-  use { 'tpope/vim-dadbod' }
-  use { 'tpope/vim-jdaddy' }
-  use { 'tpope/vim-fugitive' }
-  use { 'tpope/vim-commentary' }
-  use { 'github/copilot.vim', config = lua_path"copilot" }
+    -- Colorschema
+    use { 'sainnhe/gruvbox-material', requires = { 'folke/lsp-colors.nvim' } }
+    -- Tags
+    -- use { 'ludovicchabant/vim-gutentags', config = lua_path"vim-gutentags" }
 
-  -- Tmux
-  use { 'christoomey/vim-tmux-navigator' }
-
-  -- Colorschema
-  use { 'sainnhe/gruvbox-material', requires = { 'folke/lsp-colors.nvim'}   }
-  use { "ellisonleao/gruvbox.nvim" }
-  use { "folke/tokyonight.nvim" }
-  -- Tags
-  -- use { 'ludovicchabant/vim-gutentags', config = lua_path"vim-gutentags" }
-
-  -- Debugger
-  -- use { 'Pocco81/DAPInstall.nvim'}
-  -- use { 'mfussenegger/nvim-dap', config = lua_path"nvim-dap" }
-  -- use { 'rcarriga/nvim-dap-ui', config = lua_path"nvim-dap-ui" }
-  -- use { 'theHamsta/nvim-dap-virtual-text', config = lua_path"nvim-dap-virtual-text" }
-  --
-  -- General Plugins
-  use { 'rcarriga/nvim-notify', config = lua_path"nvim-notify" }
-  use { 'airblade/vim-rooter', config = lua_path"vim-rooter" }
-  use { 'mhinz/vim-startify' }
-  use { 'goolord/alpha-nvim', config = lua_path"alpha-nvim" }
-  use { 'jeffkreeftmeijer/vim-numbertoggle' }
-  use { 'lambdalisue/suda.vim' }
-  use { 'numtostr/FTerm.nvim', config = lua_path"fterm" }
-  use { 'wfxr/minimap.vim', config = lua_path"minimap" }
-  use { 'folke/todo-comments.nvim', config = lua_path"todo-comments" }
-  use { 'luukvbaal/stabilize.nvim', config = lua_path"stabilize" }
-  use { 'beauwilliams/focus.nvim', config = lua_path"focus" }
-  use { 'folke/trouble.nvim' }
-  use { 'kevinhwang91/nvim-bqf' }
-
-  --AutoSave
-  use { 'Pocco81/AutoSave.nvim', config = lua_path"autosave"}
-  use { 'dstein64/vim-startuptime' }
-
-  --which-key
-  use { 'folke/which-key.nvim', config = lua_path"which_key"}
-
-  --Project nvim
-  use { 'ahmedkhalf/project.nvim',config = lua_path"project_nvim"}
-
-  --Clangd
-  -- use { 'p00f/clangd_extensions.nvim'}
+    -- Debugger
+    -- use { 'Pocco81/DAPInstall.nvim'}
+    -- use { 'mfussenegger/nvim-dap', config = lua_path"nvim-dap" }
+    --use { 'rcarriga/nvim-dap-ui', config = lua_path"nvim-dap-ui" }
+    -- use { 'theHamsta/nvim-dap-virtual-text', config = lua_path"nvim-dap-virtual-text" }
+    --
+    -- General Plugins
+    use { 'rcarriga/nvim-notify', config = lua_path "nvim-notify" }
+    -- use { 'airblade/vim-rooter', config = lua_path "vim-rooter" }
+    use { 'mhinz/vim-startify' }
+    use { 'goolord/alpha-nvim', config = lua_path "alpha-nvim" }
+    use { 'jeffkreeftmeijer/vim-numbertoggle' }
+    -- use { 'lambdalisue/suda.vim' }
+    -- use { 'numtostr/FTerm.nvim', config = lua_path "fterm" }
+    use { 'akinsho/toggleterm.nvim', config = lua_path "toggleterm" }
+    use { 'wfxr/minimap.vim', config = lua_path "minimap" }
+    use { 'folke/todo-comments.nvim', config = lua_path "todo-comments" }
+    use { 'luukvbaal/stabilize.nvim', config = lua_path "stabilize" }
+    use { 'beauwilliams/focus.nvim', config = lua_path "focus" }
+    use { 'folke/trouble.nvim' }
+    use { 'kevinhwang91/nvim-bqf' }
+    use { 'folke/which-key.nvim', config = lua_path "which_key" }
+    -- use { 'Pocco81/AutoSave.nvim', config = lua_path"autosave"}
+    use { 'dstein64/vim-startuptime' }
+    use { 'nathom/filetype.nvim' }
 end)
